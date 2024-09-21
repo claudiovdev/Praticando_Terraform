@@ -8,7 +8,7 @@ resource "aws_vpc" "new-vpc" {
 data "aws_availability_zones" "available" {}
 
 output "all_availability_zones" {
-  value = data.aws_availability_zones.available.names  # Lista todas as zonas de disponibilidade disponíveis
+  value = data.aws_availability_zones.available.names
 }
 
 resource "aws_subnet" "subnets" {
