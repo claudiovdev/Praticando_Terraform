@@ -29,4 +29,15 @@ resource "aws_internet_gateway" "new-internet-gateway" {
   }
 }
 
+resource "aws_route_table" "new-rtb" {
+  vpc_id = aws_vpc.new-vpc.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.new-internet-gateway.id
+  }
+  tags = {
+    Name = "${var.prefix}-rtb"
+  }
+}
+
 
