@@ -22,4 +22,11 @@ resource "aws_subnet" "subnets" {
   }
 }
 
+resource "aws_internet_gateway" "new-internet-gateway" {
+  vpc_id = aws_vpc.new-vpc.id
+  tags = {
+    Name = "${var.prefix}-gateway"
+  }
+}
+
 
