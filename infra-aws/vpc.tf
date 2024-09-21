@@ -40,4 +40,10 @@ resource "aws_route_table" "new-rtb" {
   }
 }
 
+resource "aws_route_table_association" "new-rtb-association" {
+  count = 2
+  route_table_id = aws_route_table.new-rtb.id
+  subnet_id = aws_subnet.subnets.*.id[count.index]
+}
+
 
